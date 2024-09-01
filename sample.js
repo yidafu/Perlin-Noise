@@ -64,9 +64,6 @@ function Lerp(t, a1, a2) {
 }
 
 /****************************** 绘制样例点 ******************************/
-const samplePoints = [0, 1, 2, 3, 4].map(i =>
-  Array(100).fill(0).map((_, idx) => idx * 0.01).map(j => i + j)
-).flat()
 
 function dot(m1, m2) {
   return m1[0] * m2[0] + m1[1] * m2[1]
@@ -107,8 +104,8 @@ function noise(x, y) {
 }
 
 ctx.font = "16px serif";
-for (let i = 0; i < 1000; i += 1) {
-  for (let j = 0; j < 1000; j += 1) {
+for (let i = 0; i < 500; i += 1) {
+  for (let j = 0; j < 500; j += 1) {
     const x = i * 0.005;
     const y = j * 0.005;
     let value = noise(x, y)
