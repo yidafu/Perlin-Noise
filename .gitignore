@@ -41,3 +41,14 @@ bin/
 ### Mac OS ###
 .DS_Store
 .ipynb_checkpoints/Perlin Noise-checkpoint.ipynb
+.kotlin/errors/errors-1725185672475.log
+.kotlin/errors/errors-1725185771182.log
+.kotlin/errors/errors-1725185802017.log
+.kotlin/errors/errors-1725185975249.log
+.kotlin/errors/errors-1725186050397.log
+.kotlin/errors/errors-1725186063186.log
+.idea/.gitignore
+.idea/gradle.xml
+.idea/kotlinc.xml
+.idea/misc.xml
+.idea/vcs.xml
