@@ -5,14 +5,29 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 import kotlin.math.abs
+import kotlin.math.max
 
 fun main() {
-
     val height = 500
     val width = 500
     val perlin = PerlinNoise()
 
+    val imageV1 = BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+    for (y in 0 until height) {
+        for (x in 0 until width) {
+//            println(x * 0.005)
+            // 生成一个 0 到 255 之间的随机灰度值
+            val value = perlin.noise(x * 0.005, y * 0.005)
+
+            val grayValue = (value * 255).toInt() and 255
+            // 设置像素的颜色
+            imageV1.setRGB(x, y, Color(grayValue, grayValue, grayValue).rgb)
+        }
+    }
+    ImageIO.write(imageV1, "png", File("output1.png"))
+
     val imageV2 = BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+
     for (y in 0 until height) {
         for (x in 0 until width) {
             var n = 0.0
