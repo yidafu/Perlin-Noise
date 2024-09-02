@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module">
+    import "./PerlinNoise.mjs"
+  </script>
+  <style>
+    .row {
+      display: flex;
+    }
+
+    canvas {
+      border: 1px solid #000;
+    }
+
+    .operate {
+      margin-left: 32px;
+    }
+
+    .opt-row {
+      margin: 16px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <canvas id="canvas" width="502px" height="502px"></canvas>
+    <div class="operate">
+
+      <div class="opt-row">
+        <label for="resetSeed">reset seed:</label>
+        <input id="resetSeed" type="button" name="resetSeed" value="reset seed" />
+      </div>
+
+      <div class="opt-row">
+        <label for="defaultSeed">default seed:</label>
+        <input id="defaultSeed" type="button" name="defaultSeed" value="default seed" />
+      </div>
+      <div class="opt-row">
+        <label for="imageSize">image size:</label>
+        <input id="imageSize" name="imageSize" type="range" min="0" max="500" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
