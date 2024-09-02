@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 import kotlin.math.abs
-import kotlin.math.max
 
 fun main() {
     val height = 500

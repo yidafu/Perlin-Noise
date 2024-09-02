@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJsCompile
+
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("multiplatform") version "2.0.20"
 }
 
 group = "dev.yidafu.perlin"
@@ -10,12 +12,38 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+//    testImplementation(kotlin("test"))
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
-    jvmToolchain(17)
+    js {
+        browser {
+        }
+        binaries.executable()
+    }
+
+    sourceSets {
+        commonTest.dependencies {
+            implementation(kotlin("test")) // Brings all the platform dependencies automatically
+        }
+
+        val jsMain by getting {
+            dependencies {
+            }
+        }
+    }
+
+    jvm {
+    }
+}
+
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().download = false
+    // "true" for default behavior
+}
+
+tasks.withType<KotlinJsCompile>().configureEach {
+    kotlinOptions {
+        target = "es2015"
+    }
 }
